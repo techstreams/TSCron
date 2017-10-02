@@ -24,5 +24,5 @@ SOFTWARE.
 
 | File | From | Copyright | License |
 | :--: | :--: | :-------: | :-----: |
-| moment.gs | [Github](https://github.com/moment/moment) | Copyright (c) JS Foundation and other contributors | [MIT License](https://github.com/moment/moment/blob/develop/LICENSE) |
-| moment-timezone.gs | [Github](https://github.com/moment/moment-timezone) | Copyright (c) JS Foundation and other contributors | [MIT License](https://github.com/moment/moment-timezone/blob/develop/LICENSE) |
+| [moment.gs](moment.gs) | [Github](https://github.com/moment/moment) | Copyright (c) JS Foundation and other contributors | [MIT License](https://github.com/moment/moment/blob/develop/LICENSE) |
+| [moment-timezone.gs](moment-timezone.gs) | [Github](https://github.com/moment/moment-timezone) | Copyright (c) JS Foundation and other contributors | [MIT License](https://github.com/moment/moment-timezone/blob/develop/LICENSE) |

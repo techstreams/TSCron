@@ -17,7 +17,7 @@ Cron scheduling is available for:
 
 Potential uses for TSCron:
 
-* Send a [Google Doc](https://www.google.com/docs/about/) newsletter to clients on the `1st of every month`
+* Send a [Google Docs](https://www.google.com/docs/about/) newsletter to clients on the `1st of every month`
 * Populate a [Google Sheet](https://www.google.com/sheets/about/) with [Google Analytics](https://analytics.google.com/) data  `every 4 weeks`
 * Email event attendees a link to [Google Slides](https://www.google.com/slides/about/) `1 hour after` the presentation
 * Notify warehouse managers of new regulations `every 3 months on the 1st of the month`
@@ -343,5 +343,5 @@ SOFTWARE.
 
 | File | From | Copyright | License |
 | :--: | :--: | :-------: | :-----: |
-| moment.gs | [Github](https://github.com/moment/moment) | Copyright (c) JS Foundation and other contributors | [MIT License](https://github.com/moment/moment/blob/develop/LICENSE) |
-| moment-timezone.gs | [Github](https://github.com/moment/moment-timezone) | Copyright (c) JS Foundation and other contributors | [MIT License](https://github.com/moment/moment-timezone/blob/develop/LICENSE) |
+| [moment.gs](moment.gs) | [Github](https://github.com/moment/moment) | Copyright (c) JS Foundation and other contributors | [MIT License](https://github.com/moment/moment/blob/develop/LICENSE) |
+| [moment-timezone.gs](moment-timezone.gs) | [Github](https://github.com/moment/moment-timezone) | Copyright (c) JS Foundation and other contributors | [MIT License](https://github.com/moment/moment-timezone/blob/develop/LICENSE) |
