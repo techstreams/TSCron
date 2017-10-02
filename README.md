@@ -17,16 +17,16 @@ Cron scheduling is available for:
 
 Potential uses for TSCron:
 
-* Send a Google Doc newsletter to clients on the `1st of every month`
-* Populate a Google Sheet with [Google Analytics](https://analytics.google.com/) data  `every 4 weeks`
-* Email event attendees a link to Google Slides `1 hour after` the presentation
+* Send a [Google Doc](https://www.google.com/docs/about/) newsletter to clients on the `1st of every month`
+* Populate a [Google Sheet](https://www.google.com/sheets/about/) with [Google Analytics](https://analytics.google.com/) data  `every 4 weeks`
+* Email event attendees a link to [Google Slides](https://www.google.com/slides/about/) `1 hour after` the presentation
 * Notify warehouse managers of new regulations `every 3 months on the 1st of the month`
 * Send an email to a colleague `every 3 days`
 * Send yourself a list of goals every `January 1st`
 * Add new todos to a [Trello](https://trello.com/) board every `Sunday at 9:00 PM`
 * Send invoices to customers on the `"last day" of every month`
 * Post a message to a [Slack](https://slack.com/) channel `daily at 8:00 AM`
-* Automatically create a Sales Forecast presentation with Google Slides and share it with your manager `every 6 months`
+* Automatically create a Sales Forecast presentation with [Google Slides](https://www.google.com/slides/about/) and share it with your manager `every 6 months`
 * Send school activity updates to parents `every Monday at 8:00 AM`
 * Run a backend [microservice](https://en.wikipedia.org/wiki/Microservices) `every 3 hours`
 * ...
@@ -114,7 +114,7 @@ The `cronJob()` function will be called ***each time*** the cron job executes *(
 
 * **e** - time-driven event object which contains information for the current cron execution *(see 'time-driven events' in the [Google Apps Script documentation](https://developers.google.com/apps-script/guides/triggers/events) for more information)*.  The event object is represented in [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
-* **params** - an array of any ***user defined [ItemResponses](https://developers.google.com/apps-script/reference/forms/item-response)*** for the form elements defined in Step #1  *(NOTE: If no user defined form elements exist this parameter will be `null`)*
+* **params** - an array of any ***user defined [ItemResponses](https://developers.google.com/apps-script/reference/forms/item-response)*** for the form elements defined in [Step #2](https://github.com/techstreams/TSCron#2-add-any-user-defined-form-elements-needed-to-implement-the-cronjob-function)  *(NOTE: If no user defined form elements exist this parameter will be `null`)*
 
 Best implementation practices:
 
@@ -167,7 +167,7 @@ Run the `TSCron > Configure` option from the form's add-on menu.
 
 ![](img/step4-1.png)
 
-The first time the `Configure` option is run, the script will prompt for authorization. Complete the authorization process by following the Google authorization prompts.
+The first time the `Configure` option is run, the script **will prompt for authorization**. Complete the authorization process by following the Google authorization prompts.
 
 **Important:**
 
@@ -208,7 +208,7 @@ If the cron job is started on `February 28th` of a non-leap year and you would l
 
 **Important:**
 
-* **When scheduling a new cron** the *start date/time* must be `at least 15+ minutes in the future` of the time of the form submission and the *optional* *end date/time* must be scheduled `at least 1 hour after` the start date/time.  *NOTE: The cron job will not be scheduled  and an __error message email will be sent__ to the form owner if these conditions are not met.*
+* **When scheduling a new cron** the *start date/time* must be `at least 15+ minutes in the future` of the form submission and the *optional* *end date/time* must be scheduled `at least 1 hour after the start date/time`.  *NOTE: The cron job will not be scheduled  and an __error message email will be sent__ to the form owner if these conditions are not met.*
 
 * **Actual cron execution times** may [vary +/- 15 minutes](https://developers.google.com/apps-script/reference/script/clock-trigger-builder) from the original schedule dates/times.
 
@@ -222,7 +222,7 @@ If the cron job is started on `February 28th` of a non-leap year and you would l
 
 * **Do not delete any TSCron related [triggers](https://developers.google.com/apps-script/guides/triggers/#available_types_of_triggers)** from the form while there is a running cron job or the cron scheduler will cease to function properly.
 
-* **Because cron schedule times can vary** +/- 15 minutes, the cron job ***could potentially execute after*** the original end date/time but before the cron job is stopped.
+* **Because cron schedule times can vary +/- 15 minutes**, the cron job ***could potentially execute after*** the original end date/time but before the cron job is stopped.
 
 ---
 
@@ -270,7 +270,7 @@ No.  Reopen the sidebar to see any changes to the cron status.
 If TSCron is not working properly, perform the following steps:<br><br>
 <ul>
 <li>Check email for an error message <em>(form owner)</em>.</li><br>
-<li>Run the `TSCron > Configure` option and re-authorize the script in the event any new authorization scopes were added to the `cronJob()` function.</li><br>
+<li>Run the <code>TSCron > Configure</code> option and re-authorize the script in the event any new authorization scopes were added to the <code>cronJob()</code> function.</li><br>
 <li>Ensure the TSCron configuration start and end dates are set to properly allow the cron interval to run.  <em>Start date should be 15+ minutes in future of the form submission and optional end date should be 1+ hours after the start date.</em></li>
 </ul>
 </details>
@@ -292,14 +292,14 @@ For general questions, submit an issue through the [issue tracker](https://githu
 <br>
 <details>
 <summary><strong>How do I submit bug reports for TSCron?</strong></summary>
-For bug reports, [fork](https://help.github.com/articles/fork-a-repo/) this repository, create a test which demonstrates the problem following the procedures outlined in the "Tests" section below and submit a [pull request](https://help.github.com/articles/creating-a-pull-request/).  If possible, please submit a solution along with the pull request.
+For bug reports, <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">fork</a> this repository, create a test which demonstrates the problem following the procedures outlined in the "Tests" section below and submit a <a href="https://help.github.com/articles/creating-a-pull-request/" target="_blank">pull request</a>.  If possible, please submit a solution along with the pull request.
 </details>
 
 ---
 
 ## Tests
 
-TSCron unit tests can be found in [test.js](/tests/tests).
+TSCron unit tests can be found in [test.js](/tests/test.js).
 
 To perform TSCron unit tests:
 
