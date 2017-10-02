@@ -282,12 +282,12 @@ No.  TSCron currently exists in English only.
 <br>
 <details>
 <summary><strong>Why am I receiving a quota error when the cronJob() function runs?</strong></summary>
-Google Apps Script is subject to daily quotas based upon the type of account accessing and running the script. See the "Quota Limits" tab on the [Google Apps Script Dashboard](https://docs.google.com/macros/dashboard) for more information.
+Google Apps Script is subject to daily quotas based upon the type of account accessing and running the script. See the "Quota Limits" tab on the <a href="https://docs.google.com/macros/dashboard" target="_blank">Google Apps Script Dashboard</a> for more information.
 </details>
 <br>
 <details>
 <summary><strong>How do I ask general questions about TSCron?</strong></summary>
-For general questions, submit an issue through the [issue tracker](https://github.com/techstreams/TSCron/issues).
+For general questions, submit an issue through the <a href="https://github.com/techstreams/TSCron/issues" target="_blank">issue tracker</a>.
 </details>
 <br>
 <details>
