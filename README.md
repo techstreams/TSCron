@@ -299,17 +299,17 @@ For bug reports, <a href="https://help.github.com/articles/fork-a-repo/" target=
 
 ## Tests
 
-TSCron unit tests can be found in [test.js](/tests/test.js).
+TSCron unit tests can be found in [test.gs](/tests/test.gs).
 
 To perform TSCron unit tests:
 
-* Add the [test.js](/tests/test.js) file to the TSCron script editor.
+* Add the [test.gs](/tests/test.gs) file to the TSCron script editor.
 
 * Install [QUnit for Google Apps Script](https://github.com/simula-innovation/qunit/tree/gas/gas) by adding the project library *(see the project documentation for proper install instructions)*.
 
 * [Deploy the script](https://developers.google.com/apps-script/guides/web#deploying_a_script_as_a_web_app) as a web app *(execute script as self)*.
 
-* Set the desired unit test configuration entry in the `testConfig` object to `true` *(see the [test.js](/tests/test.js) file for information on where to modify these values to enable tests)*.   NOTE: Some tests can take longer to run so best to run them individually.
+* Set the desired unit test configuration entry in the `testConfig` object to `true` *(see the [test.gs](/tests/test.gs) file for information on where to modify these values to enable tests)*.   NOTE: Some tests can take longer to run so best to run them individually.
 
 * Access the deployed web app for test results.
 
