@@ -1,0 +1,151 @@
+<!--
+/*
+* Copyright Laura Taylor
+* (https://github.com/techstreams/TSCron)
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+ */
+ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TSCron</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <style>
+      .list-group-item {
+         padding: 0 0;
+         border: 5px solid rgba(0,0,0,.125);
+      }
+      .note {
+        font-size: 70%;
+        font-weight: 400;
+      }
+      .badge-past {
+         background-color:  #929496;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <div class="card card-outline-secondary mb-3 text-center">
+              <div class="card-header">
+                <h3 class="card-title">Cron Scheduler</h3>
+              </div>
+              <div class="card-block">
+                <ul class="list-group list-group-flush">
+                   <li class="list-group-item">
+                      <? if (display.enabled) { ?>
+                      <p><strong>Mode:</strong> &nbsp; <strong><span class="badge badge-success">Enabled</span></strong></p>
+                            <? if (display.scheduled) { ?>
+                            <p><strong>Status:</strong> &nbsp; <strong><span class="badge badge-warning">Scheduled</span></strong></p>
+                            <? } else if (display.running) { ?>
+                            <p><strong>Status:</strong> &nbsp; <strong><span class="badge badge-success">Running</span></strong></p>
+                            <? } else { ?>
+                            <p><strong>Status:</strong> &nbsp; <strong><span class="badge badge-danger">Not Running</span></strong></p>
+                            <br>
+                            <p class="text-info">Submit a response to the form to start the Cron Scheduler.<br><br><em>If you've recently submitted a form response and the Cron Scheduler Status does not show 'Scheduled' or 'Running', please wait a couple minutes before reopening this sidebar.</em></p>
+                            <? } ?>
+                            <? if (display.schedule) { ?>
+                            <p><strong>Run<?!= display.schedule.every == 'Custom' ? "" : " Every" ?>:</strong> &nbsp;<strong><span class="badge badge-primary"><?!= display.schedule.every ?></span></strong></p>
+                               <? if (display.schedule.near) { ?>
+                               <p><strong>Near:</strong> &nbsp;<strong><span class="badge badge-primary"><?!= display.schedule.near ?></span></strong></p>
+                               <? } ?>
+                            <br><br>
+                            <? } ?>
+                      <? } else { ?>
+                      <p><strong>Mode:</strong> &nbsp; <strong><span class="badge badge-danger">Disabled</span></strong></p>
+                      <br>
+                      <p class="text-info">Enable Cron Scheduler using the form's <br><strong>TSCron &gt; Configure</strong><br> add-ons menu</p>
+                      <? } ?>
+                   </li>
+                   <? if (display.enabled) { ?>
+                     <? if (display.running && display.last) { ?>
+                         <li class="list-group-item">
+                            <p><strong>Last Run On:</strong></p>
+                            <p>
+                               <strong><span class="badge badge-success"><?!= display.last ?></span></strong>
+                            </p>
+                         </li>
+                      <? } ?>
+                      <? if (display.running && display.next) { ?>
+                         <li class="list-group-item">
+                            <p><strong>Next Scheduled On:</strong></p>
+                            <p>
+                               <strong><span class="badge badge-primary"><?!= display.next ?></span></strong>
+                               <br>
+                               <span class="note"><em>Actual time may vary +/- 15 minutes</em></span>
+                            </p>
+                         </li>
+                      <? } ?>
+                      <? if (display.scheduled) { ?>
+                         <li class="list-group-item">
+                            <p><strong>Start Date:</strong></p>
+                            <p>
+                               <strong><span class="badge badge-warning"><?!= display.schedule.start ?></span></strong>
+                               <br>
+                               <span class="note"><em>Actual time may vary +/- 15 minutes</em></span>
+                            </p>
+                         </li>
+                      <? } else { ?>
+                         <? if (display.running) { ?>
+                            <li class="list-group-item">
+                               <p><strong>Start Date:</strong></p>
+                               <p>
+                                  <strong><span class="badge badge-success"><?!= display.schedule.start ?></span></strong>
+                               </p>
+                            </li>
+                         <? } ?>
+                      <? } ?>
+                      <? if (display.end) { ?>
+                         <li class="list-group-item">
+                            <p><strong>End Date:</strong></p>
+                            <p>
+                               <strong><span class="badge badge-danger"><?!= display.schedule.end ?></span></strong>
+                               <br>
+                               <span class="note"><em>Actual time may vary +/- 15 minutes</em></span>
+                            </p>
+                         </li>
+                      <? }  ?>
+                      <? if (display.created) { ?>
+                         <li class="list-group-item">
+                            <p><strong>Created On:</strong></p>
+                            <p><strong><span class="badge badge-past"><?!= display.created ?></span></strong></p>
+                         </li>
+                      <? } ?>
+                   <? } ?>
+                </ul>
+              </div>
+              <div class="card-footer text-muted">
+                <small class="text-muted"><em><a href="https://github.com/TSCron" target="__blank">TSCron</a> - a Google Form Cron Scheduler powered by Google Apps Script</em></small>
+              </div>
+            </div>
+          </div>
+        <div class="col-sm-1"></div>
+      </div>
+    </div>
+  </body>
+</html>
