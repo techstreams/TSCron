@@ -65,9 +65,9 @@ Cron scheduling occurs in the **form owner's default time zone** and takes into 
 
 * Login to [Google Drive](https://drive.google.com/).
 
-* Access the **[TSCron form](https://docs.google.com/forms/d/1JMuiobgfOyVb9EzbZiMdYnvkTXoSPzZta9MEZ5uKWyU/copy)**.
+* Access the **[TSCron form](https://techstreams.page.link/TSCron)**.
 
-* Click the ***Make a copy*** button. This will copy the form to Google Drive.
+* Click the ***Use Template*** button. This will copy the form to Google Drive.
 
 ![](img/step1-1.png)
 
