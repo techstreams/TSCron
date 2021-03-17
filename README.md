@@ -1,5 +1,12 @@
 ## Overview
 
+*If you enjoy my [Google Workspace Apps Script](https://developers.google.com/apps-script) work, please consider buying me a cup of coffee!* 
+
+
+[![](https://techstreams.github.io/images/bmac.svg)](https://www.buymeacoffee.com/techstreams)
+
+---
+
 ![](img/overview.png)
 
 **TSCron** is a [Google Forms](https://www.google.com/forms/about/) based [Cron](https://en.wikipedia.org/wiki/Cron) scheduler powered by [Google Apps Script](https://www.google.com/script/start/).
